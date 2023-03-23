@@ -14,7 +14,7 @@ root.geometry('400x550')
 numbers = [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 12]
 arrow_color_menu = Frame()
 arrow_color_menu.pack(side=LEFT)
-
+# Блок выбора цвета часовой стрелки
 hour_arrow_color = LabelFrame(arrow_color_menu, text='Hour color')
 hour_color = ['black', 'pink', 'blue']
 hour_color_value = StringVar(value=hour_color[0])
@@ -31,7 +31,7 @@ def hour_selected(event):
 
 
 hour_combobox.bind("<<ComboboxSelected>>", hour_selected)
-
+# Блок выбора цвета минутной стрелки
 minute_arrow_color = LabelFrame(arrow_color_menu, text='Minute color')
 minute_color = ['black', 'purple', 'navy']
 minute_color_value = StringVar(value=minute_color[0])
@@ -48,7 +48,7 @@ def minute_selected(event):
 
 
 minute_combobox.bind("<<ComboboxSelected>>", minute_selected)
-
+# Блок выбора цвета секундной стрелки
 second_arrow_color = LabelFrame(arrow_color_menu, text='Second color')
 second_color = ['black', 'blue', 'red']
 second_color_value = StringVar(value=second_color[0])
@@ -67,6 +67,7 @@ def second_selected(event):
 second_combobox.bind("<<ComboboxSelected>>", second_selected)
 
 
+# Функция выбора темы
 def theme_select():
     match themes_values.get():
         case 'light':
@@ -88,7 +89,7 @@ def theme_select():
             create_big_dots('white')
             c.itemconfig(circle_field, outline='white')
 
-
+# Блок выбора темы
 theme_selection_menu = LabelFrame(root, text='Theme')
 themes = ['light', 'dark']
 themes_values = StringVar(value='light')
@@ -98,6 +99,7 @@ for theme in themes:
 theme_selection_menu.pack(side=RIGHT)
 
 
+# Функция отрисовки цифр
 def create_nums(color):
     for i in range(0, len(numbers)):
         c.create_text(
@@ -109,6 +111,7 @@ def create_nums(color):
         )
 
 
+# Функция отрисовки маленьких точек
 def create_small_dots(color):
     for y in range(60):
         c.create_text(
@@ -119,6 +122,7 @@ def create_small_dots(color):
             fill=color)
 
 
+# Функция отрисовки больших точек
 def create_big_dots(color):
     for x in range(12):
         c.create_text(
@@ -157,6 +161,7 @@ def update_arrows():
         create_arrows()
 
 
+# Создание элементов часов с параметрами по умолчанию
 create_nums('black')
 create_big_dots('black')
 create_small_dots('black')
