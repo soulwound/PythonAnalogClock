@@ -26,7 +26,6 @@ hour_arrow_color.pack()
 
 def hour_selected(event):
     selection = hour_combobox.get()
-    print(selection)
     c.itemconfig(hour, fill=selection)
 
 
